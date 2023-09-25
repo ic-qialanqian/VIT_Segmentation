@@ -30,7 +30,3 @@ Note: our main model is under './toolbox/models/LASNet_base.py'
 # Citation
        
                 
-                
-If you encounter any problems with the code, want to report bugs, etc.
-
-Please contact me at lllmiemie@163.com or ligongyang@shu.edu.cn.
