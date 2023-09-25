@@ -57,29 +57,16 @@ class eeemodelLoss(nn.Module):
     def forward(self, inputs, targets):
         semantic_gt, binary_gt, boundary_gt = targets
 
-        semantic_out,semantic_out_2,x5,ir5,out_rgb,out_t = inputs
-        #semantic_out,semantic_out_2 = inputs
         
-        #print(torch.unique(semantic_gt))
+        semantic_out,semantic_out_2 = inputs
+                
 
         loss1 = self.semantic_loss(semantic_out, semantic_gt)
         loss2 = lovasz_softmax(F.softmax(semantic_out, dim=1), semantic_gt, ignore=255)
         loss3 = self.semantic_loss(semantic_out_2, semantic_gt)
-        #loss6 = self.binary_loss(sal_out, binary_gt)
-        #loss7 = self.boundary_loss(edge_out, boundary_gt)
-        loss4 = self.semantic_loss(out_rgb, semantic_gt)
-        loss5 = self.semantic_loss(out_t, semantic_gt)
-        
-        
-        
-        inputs1_flat = torch.mean(x5,dim=1).view(4,-1)
-        inputs2_flat = torch.mean(ir5,dim=1).view(4,-1)
+                
 
-        loss_ct = loss_fn(inputs1_flat,inputs2_flat).mean()
-        
-        
-
-        loss = loss1 +loss2+loss3 + loss_ct*10 + loss4 + loss5
+        loss = loss1 +loss2+loss3
         return loss
 
 
@@ -216,7 +203,7 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser(description="config")
-    parser.add_argument("--config", type=str, default="configs/LASNet_vit.json", help="Configuration file to use")
+    parser.add_argument("--config", type=str, default="configs/base_vit.json", help="Configuration file to use")
     parser.add_argument("--opt_level", type=str, default='O1')
     parser.add_argument("--inputs", type=str.lower, default='rgb', choices=['rgb', 'rgbd'])
     parser.add_argument("--resume", type=str, default='',
