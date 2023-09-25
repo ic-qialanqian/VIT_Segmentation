@@ -29,7 +29,7 @@
     "loss": "crossentropy",
     "class_weight": "enet",
     
-    "ablation": "2vitb1_convvithead5_rgbt_new_MMHL10"
+    "ablation": "2vitb1"
 }
 
 
