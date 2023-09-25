@@ -1,11 +1,11 @@
-# LASNet 
-  This project provides the code and results for 'RGB-T Semantic Segmentation with Location, Activation, and Sharpening', IEEE TCSVT, 2023. [IEEE link](https://ieeexplore.ieee.org/document/9900351) and [arxiv link](https://arxiv.org/abs/2210.14530)
+# EfficientVIT for Segmentation 
+  
   
 # Requirements
   python 3.7/3.8 + pytorch 1.9.0 (biult on [EGFNet](https://github.com/ShaohuaDong2021/EGFNet))
    
    
-# Segmentation maps and performace
+# Segmentation maps and performance
    We provide segmentation maps on MFNet dataset and PST900 dataset under './model/'.
    
    **Performace on MFNet dataset**
@@ -22,11 +22,10 @@
  
 
 # Training
-1. Install '[apex](https://github.com/NVIDIA/apex)'.
-2. Download [MFNet dataset](https://pan.baidu.com/s/1NHGazP7pwgEM47SP_ljJPg) (code: 3b9o) or [PST900 dataset](https://pan.baidu.com/s/13xgwFfUbu8zNvkwJq2Ggug) (code: mp2h).
-3. Run train_LASNet.py (default to MFNet Dataset).
+1. Download [MFNet dataset](https://pan.baidu.com/s/1NHGazP7pwgEM47SP_ljJPg) (code: 3b9o) or [PST900 dataset](https://pan.baidu.com/s/13xgwFfUbu8zNvkwJq2Ggug) (code: mp2h).
+2. Run train_base_vit.py (default to MFNet Dataset).
 
-Note: our main model is under './toolbox/models/LASNet.py'
+Note: our main model is under './toolbox/models/LASNet_vit.py'
 
 
 # Pre-trained model and testing
@@ -36,16 +35,7 @@ Note: our main model is under './toolbox/models/LASNet.py'
   
   
 # Citation
-        @ARTICLE{Li_2023_LASNet,
-                author = {Gongyang Li and Yike Wang and Zhi Liu and Xinpeng Zhang and Dan Zeng},
-                title = {RGB-T Semantic Segmentation with Location, Activation, and Sharpening},
-                journal = {IEEE Transactions on Circuits and Systems for Video Technology},
-                year={2023},
-                volume={33},
-                number={3},
-                pages={1223-1235},
-                month={Mar.},
-                }
+       
                 
                 
 If you encounter any problems with the code, want to report bugs, etc.
