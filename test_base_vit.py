@@ -43,11 +43,9 @@ def evaluate(logdir, save_predict=False, options=['val', 'test', 'test_day', 'te
 
     model = get_model(cfg).to(device)
 
-    load_path = '/home/yclab/guangyu/LASNet/run/irseg-LASNet_base-2vitb1_convvithead5_rgbt_new_MMHL10/model_133.pth'
-    #weight = load_state_dict_from_file('./checkpoints/b0.pt')
-    #model.load_state_dict(weight)
+    load_path = './run/.../model.pth'
     model = load_ckpt(load_path, model, prefix=prefix)
-    #model = load_ckpt(logdir, model, prefix=prefix)
+
 
     running_metrics_val = runningScore(cfg['n_classes'], ignore_index=cfg['id_unlabel'])
     time_meter = averageMeter()
@@ -82,13 +80,13 @@ def evaluate(logdir, save_predict=False, options=['val', 'test', 'test_day', 'te
                 running_metrics_val.update(label, predict)
 
                 time_meter.update(time.time() - time_start, n=image.size(0))
-                '''
+                
                 if save_predict:
                     predict = predict.squeeze(0)
                     predict = class_to_RGB(predict, N=len(cmap), cmap=cmap)
                     predict = Image.fromarray(predict)
                     predict.save(os.path.join(save_path, sample['label_path'][0]))
-                '''
+                
 
         metrics = running_metrics_val.get_scores()
         print('overall metrics .....')
