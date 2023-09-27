@@ -34,7 +34,11 @@ def get_model(cfg):
     elif cfg['model_name']== 'LASNet_base':
         from .models.LASNet_base import LASNet
         return LASNet(n_classes=cfg['n_classes'])
-    
+
+    elif cfg['model_name']== 'LASNet_base_4ch':
+        from .models.LASNet_base_4ch import LASNet
+        return LASNet(n_classes=cfg['n_classes'])
+
     elif cfg['model_name']== 'LASNet_pretrain':
         from .models.LASNet_pretrain import LASNet
         return LASNet(n_classes=cfg['n_classes'])
