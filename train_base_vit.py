@@ -21,11 +21,6 @@ from toolbox.datasets.irseg import IRSeg
 from toolbox.datasets.pst900 import PSTSeg
 from toolbox.losses import lovasz_softmax
 
-def KD_KLDivLoss(Stu_output, Tea_output, temperature):
-    T = temperature
-    KD_loss = nn.KLDivLoss()(F.log_softmax(Stu_output/T, dim=1), F.softmax(Tea_output/T, dim=1)).cuda()
-    KD_loss = KD_loss * T * T
-    return KD_loss
     
     
 def loss_fn(x, y):
