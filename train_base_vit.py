@@ -21,12 +21,6 @@ from toolbox.datasets.irseg import IRSeg
 from toolbox.datasets.pst900 import PSTSeg
 from toolbox.losses import lovasz_softmax
 
-    
-    
-def loss_fn(x, y):
-	x = F.normalize(x, dim=1, p=2)
-	y = F.normalize(y, dim=1, p=2)
-	return 2 - 2 * (x * y).sum(dim=1)
  
 
 class eeemodelLoss(nn.Module):
@@ -97,7 +91,7 @@ def run(args):
     
     
     weight = load_state_dict_from_file('./checkpoints/b1-r288.pt')
-    #model.backbone1.load_state_dict(weight,strict=False)
+    
     model.load_state_dict(weight,strict=False)
     
 
