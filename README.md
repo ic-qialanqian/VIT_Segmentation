@@ -2,7 +2,7 @@
   
   
 # Requirements
-  python 3.7/3.8 + pytorch 1.9.0 (biult on [EGFNet](https://github.com/ShaohuaDong2021/EGFNet))
+  python 3.7/3.8 + pytorch 1.9.0 (built on [EGFNet](https://github.com/ShaohuaDong2021/EGFNet))
    
    
 # Segmentation maps and performance
